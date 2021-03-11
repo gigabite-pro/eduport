@@ -226,4 +226,27 @@ router.post('/schedule', authenticateJWT, (req, res) => {
     })
 })
 
+router.post('/publishTest', authenticateJWT, (req,res) => {
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+
+    const { testName, testTime, testDate, pdfUrl ,inviteCode } = req.body
+    var testCode = makeid(6);
+    Class.findOne({ inviteCode }, (err, classFound) => {
+        if(err) {
+            res.status(500)
+        } 
+        classFound.tests = [...classFound.tests, {testCode, testName , testTime, testDate , pdfUrl}]
+        classFound.save()
+        res.redirect(`/class/${inviteCode}`)
+    })
+})
+
 module.exports = router
