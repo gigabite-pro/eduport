@@ -152,7 +152,15 @@ router.get('/:inviteCode', authenticateJWT, (req,res) => {
                             inviteCode
                         })
                     } else {
-                        res.send("the class teacher has not accepted your join request yet.")
+                        let errors = [];
+                        errors.push({msg: "Your request has not been approved by the teacher yet"});
+                        res.render('dashboard', {
+                            'typeOfUser': user.typeOfUser,
+                            'pfp': user.pfp,
+                            'name': user.name,
+                            'classes': user.classes,
+                            errors
+                        })
                     }
                 }
             }
