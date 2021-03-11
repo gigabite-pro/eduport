@@ -155,7 +155,7 @@
                         </div>
                         <div class="mt-3">
                             From
-                            <select name="scheduleFrom">
+                            <select name="scheduleFrom" class="form-control">
                                 <% for (let i = 1; i < 12; i++) { %> 
                                     <option value="<%- i %> AM"><%- i %> AM</option>
                                 <% } %>
@@ -166,7 +166,7 @@
                         </div>
                         <div class="mt-3">
                             To
-                            <select name="scheduleTo">
+                            <select name="scheduleTo" class="form-control">
                                 <% for (let i = 1; i < 12; i++) { %> 
                                     <option value="<%- i %> AM"><%- i %> AM</option>
                                 <% } %>
@@ -270,7 +270,7 @@
                                 >   
                         </div>
                         <div class="mt-3">
-                            <select name="member">
+                            <select name="member" class="form-control">
                                 <% for (let i = 0; i < members.length; i++) { %> 
                                     <option value="<%- members[i].email %>"><%- members[i].name %></option>
                                 <% } %>
@@ -300,6 +300,15 @@
                 <div class="row">
                     <div class="col-12 text-center mt-3">
                         <p><%- about %></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mt-2 mb-3">
+                        <a href="/dashboard">
+                            <button type="button" class="btns shadow-sm">
+                                Dashboard
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <hr class="mt-2" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
