@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/c87f06ae40c78321844f2eac8b51737f?family=Corbel" rel="stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/abc159cb0a.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/class.css">
+    <title>Class</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Modals -->
+        <!-- Test Modal -->
+        <div class="modal fade" id="testModal" tabindex="-1" aria-labelledby="testModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="testModalLabel">Test</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/" , method="POST">
+                        <div class="mt-3">
+                            <input
+                                name="name" 
+                                type="text" 
+                                placeholder="Name"
+                                required
+                                >   
+                        </div>
+                        <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                        color: white;">Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Homework Modal -->
+        <div class="modal fade" id="hwModal" tabindex="-1" aria-labelledby="hwModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="hwModalLabel">Homework</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/class/publishhw" , method="POST">
+                        <div class="mt-3">
+                            <input
+                                name="homeworkTitle" 
+                                type="text" 
+                                placeholder="Title"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="homeworkContent" 
+                                type="text" 
+                                placeholder="Content"
+                                required
+                                >  
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="homeworkPublishingDate" 
+                                type="text" 
+                                placeholder="Publishing Date (DD/MM/YY)"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="homeworkDueDate" 
+                                type="text" 
+                                placeholder="Due Date (DD/MM/YY)"
+                                required
+                                >   
+                        </div>
+                        <input name="inviteCode" type="hidden" value="<%- inviteCode %>"/>
+                        <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                        color: white;">Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Schedule Modal -->
+        <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="scheduleModalLabel">Schedule</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/class/schedule" , method="POST">
+                        <div class="mt-3">
+                            <input
+                                name="scheduleDate" 
+                                type="text" 
+                                placeholder="Date (DD/MM/YY)"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            From
+                            <select name="scheduleFrom">
+                                <% for (let i = 1; i < 12; i++) { %> 
+                                    <option value="<%- i %> AM"><%- i %> AM</option>
+                                <% } %>
+                                <% for (let i = 1; i < 12; i++) { %> 
+                                    <option value="<%- i %> PM"><%- i %> PM</option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            To
+                            <select name="scheduleTo">
+                                <% for (let i = 1; i < 12; i++) { %> 
+                                    <option value="<%- i %> AM"><%- i %> AM</option>
+                                <% } %>
+                                <% for (let i = 1; i < 12; i++) { %> 
+                                    <option value="<%- i %> PM"><%- i %> PM</option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="scheduleContent" 
+                                type="text" 
+                                placeholder="Event Description"
+                                required
+                                >   
+                        </div>
+                        <input name="inviteCode" type="hidden" value="<%- inviteCode %>"/>
+                        <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                        color: white;">Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Notice Modal -->
+        <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="noticeModalLabel">Notice</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/class/publishnotice" , method="POST">
+                        <div class="mt-3">
+                            <input
+                                name="noticeTitle" 
+                                type="text" 
+                                placeholder="Title"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="noticeContent" 
+                                type="text" 
+                                placeholder="Content"
+                                required
+                                >  
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="noticeDate" 
+                                type="text" 
+                                placeholder="Date (DD/MM/YY)"
+                                required
+                                >   
+                        </div>
+                        <input name="inviteCode" type="hidden" value="<%- inviteCode %>"/>
+                        <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                        color: white;">Publish</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Report Modal -->
+          <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="reportModalLabel">Report</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/class/addreport" , method="POST">
+                        <div class="mt-3">
+                            <input
+                                name="reportName" 
+                                type="text" 
+                                placeholder="Report Name"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="reportDate" 
+                                type="text" 
+                                placeholder="Date (DD/MM/YY)"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <input
+                                name="reportMarks" 
+                                type="text" 
+                                placeholder="Marks (received/total)"
+                                required
+                                >   
+                        </div>
+                        <div class="mt-3">
+                            <select name="member">
+                                <% for (let i = 0; i < members.length; i++) { %> 
+                                    <option value="<%- members[i].email %>"><%- members[i].name %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <input name="inviteCode" type="hidden" value="<%- inviteCode %>"/>
+                        <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                        color: white;">Add</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-md-3 left-side">
+                <div class="row mt-4">
+                    <div class="col-12 text-center mt-3 welcome">
+                        <h2><%- name %></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mt-2 welcome">
+                        <h6>Owner - <%- ownerName %></h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mt-3">
+                        <p><%- about %></p>
+                    </div>
+                </div>
+                <hr class="mt-2" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
+                <div class="row mt-3">
+                    <div class="col-12 text-center welcome">
+                        <h5>Students</h5>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <% for (let i = 0; i < members.length; i++) { %> 
+                        <% if(admin == true) { %>
+                            <div class="col-11 mt-3" data-bs-toggle="modal" data-bs-target="#<%- members[i].modalID %>Modal" id="memberModal">
+                                <div class="student">
+                                    <div class="row">
+                                        <div class="col-8 name">
+                                            <%- members[i].name %>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <div class="pfp-outer-circle">
+                                                <img class="pfp" src="<%- members[i].pfp %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="<%- members[i].modalID %>Modal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="memberModalLabel">Member Information</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mt-3">
+                                            <div class="col-8 name">
+                                                <%- members[i].name %>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="col-8 name">
+                                                <%- members[i].email %>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="col-8 name">
+                                                Status: <%- members[i].status %>
+                                            </div>
+                                        </div>
+                                        <% if(members[i].status == "pending") { %>
+                                            <form action="/class/approvemember" , method="POST">
+                                                <input name="email" type="hidden" value="<%- members[i].email %>"/>
+                                                <input name="inviteCode" type="hidden" value="<%- inviteCode %>"/>
+                                                <button type="submit" class="btns mt-4" style="background-color: #3E4155;
+                                                color: white;">Approve</button>
+                                            </form>
+                                        <% } else { %>
+                                            <br>
+                                        <% } %>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        <% } else { %>
+                            <div class="col-11 mt-3">
+                                <div class="student">
+                                    <div class="row">
+                                        <div class="col-8 name">
+                                            <%- members[i].name %>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <div class="pfp-outer-circle">
+                                                <img class="pfp" src="<%- members[i].pfp %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-md-9 right-side">
+                <div class="row">
+                    <!-- Vertically Left -->
+                    <div class="col-6">
+                        <!-- Horizontally Upward -->
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div class="test mt-3 shadow">
+                                    <div class="row">
+                                        <div class="col-9 mt-3 test-head">
+                                            <h5>Test</h5>
+                                        </div>
+                                        <div class="col-3 mt-3">
+                                            <% if(admin == true) { %>
+                                                <button type="button" class="add-btns" data-bs-toggle="modal" data-bs-target="#testModal">
+                                                    <i class="fas fa-plus"></i> Add
+                                                </button>
+                                            <% } else { %><% } %>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
+                                    <div class="row mt-1 justify-content-center">
+                                        <!-- Test Card -->
+                                        <div class="col-10 mt-3">
+                                            <div class="test-card shadow">
+                                                <div class="row">
+                                                    <div class="col-1 icons text-center">
+                                                        <i class="far fa-bookmark"></i>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        Maths Final Test
+                                                    </div>
+                                                    <div class="col-3">
+                                                        19/03/2017
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Test card end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Horizontally Downward -->
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- Homework box -->
+                                <div class="hw mt-4 shadow">
+                                    <div class="row">
+                                        <div class="col-6 mt-3 test-head">
+                                            <h5>Homework</h5>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <% if(admin == true) { %>
+                                                <button type="button" class="add-btns" data-bs-toggle="modal" data-bs-target="#hwModal">
+                                                    <i class="fas fa-plus"></i> Add
+                                                </button>
+                                            <% } else { %><% } %>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
+                                    <div class="row mt-1 justify-content-center">
+                                        <% for (let i = 0; i < homework.length; i++) { %> 
+                                            <!-- Homework Card -->
+                                            <div class="col-11 mt-3" data-bs-toggle="modal" data-bs-target="#<%- homework[i].modalID %>Modal" id="noticeModal">
+                                                <div class="test-card shadow">
+                                                    <div class="row">
+                                                        <div class="col-2 notice-icons">
+                                                            <i class="fas fa-book"></i>
+                                                        </div>
+                                                        <div class="col-10 hw-name">
+                                                        <%- homework[i].homeworkTitle %>
+                                                            <br>
+                                                        <%- homework[i].homeworkPublishingDate %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <!-- Homework card end -->
+                                            <div class="modal fade" id="<%- homework[i].modalID %>Modal" tabindex="-1" aria-labelledby="homeworkModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="homeworkModalLabel"><%- homework[i].homeworkTitle %></h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <%- homework[i].homeworkContent %>
+                                                        <br>
+                                                        Due Date: <%- homework[i].homeworkDueDate %>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <!-- Homework box end -->
+                            </div>
+                            <div class="col-6">
+                                <!-- Schedule Box -->
+                                <div class="hw mt-4 shadow">
+                                    <div class="row">
+                                        <div class="col-6 mt-3 test-head">
+                                            <h5>Schedule</h5>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <% if(admin == true) { %>
+                                                <button type="button" class="add-btns" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                                                    <i class="fas fa-plus"></i> Add
+                                                </button>
+                                            <% } else { %><% } %>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
+                                    <div class="row mt-1 justify-content-center">
+                                        <% for (let i = 0; i < schedule.length; i++) { %>
+                                            <!-- Schedule Card -->
+                                            <div class="col-11 mt-3" data-bs-toggle="modal" data-bs-target="#<%- schedule[i].modalID %>Modal" id="noticeModal">
+                                                <div class="test-card shadow">
+                                                    <div class="row">
+                                                        <div class="col-2 notice-icons">
+                                                            <i class="fas fa-calendar-week"></i>
+                                                        </div>
+                                                        <div class="col-10 hw-name">
+                                                            <%- schedule[i].scheduleDate %>
+                                                            <br>
+                                                            <%- schedule[i].scheduleTime %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <!-- Schedule card end -->
+                                            <div class="modal fade" id="<%- schedule[i].modalID %>Modal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="scheduleModalLabel"><%- schedule[i].scheduleDate %></h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Timings: <%- schedule[i].scheduleTime %>
+                                                        <br>
+                                                        <%- schedule[i].scheduleContent %>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <!-- Schedule box end -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vertically Right -->
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- Notice Box -->
+                                <div class="notice mt-4 shadow">
+                                    <div class="row">
+                                        <div class="col-6 mt-3 test-head">
+                                            <h5>Notice</h5>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <% if(admin == true) { %>
+                                                <button type="button" class="add-btns" data-bs-toggle="modal" data-bs-target="#noticeModal">
+                                                    <i class="fas fa-plus"></i> Add
+                                                </button>
+                                            <% } else { %><% } %>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
+                                    <div class="row mt-1 justify-content-center">
+                                        <% for (let i = 0; i < notices.length; i++) { %> 
+                                            <!-- Notice Card -->
+                                            <div class="col-11 mt-3" data-bs-toggle="modal" data-bs-target="#<%- notices[i].modalID %>Modal" id="noticeModal">
+                                                <div class="test-card shadow">
+                                                    <div class="row">
+                                                        <div class="col-2 notice-icons">
+                                                            <i class="far fa-bell"></i>
+                                                        </div>
+                                                        <div class="col-10 fees-name">
+                                                            <%- notices[i].noticeTitle %>
+                                                            <br>
+                                                            <%- notices[i].noticeDate %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <!-- Notice card end -->
+                                            <div class="modal fade" id="<%- notices[i].modalID %>Modal" tabindex="-1" aria-labelledby="noticeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="noticeModalLabel"><%- notices[i].noticeTitle %></h5>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <%- notices[i].noticeContent %>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div> 
+                                <!-- Notice Box end -->
+                            </div>
+                            <div class="col-6">
+                                <!-- Report Box -->
+                                <div class="notice mt-4 shadow">
+                                    <div class="row">
+                                        <div class="col-6 mt-3 test-head">
+                                            <h5>Report</h5>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <% if(admin == true) { %>
+                                                <button type="button" class="add-btns" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                                    <i class="fas fa-plus"></i> Add
+                                                </button>
+                                            <% } else { %><% } %>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
+                                    <div class="row mt-1 justify-content-center">
+                                        <!-- Report Card -->
+                                        <div class="col-11 mt-3">
+                                            <% for (let i = 0; i < reports.length; i++) { %> 
+                                                <div class="test-card shadow">
+                                                    <div class="row">
+                                                        <div class="col-2 notice-icons">
+                                                            <i class="fas fa-graduation-cap"></i>
+                                                        </div>
+                                                        <div class="col-8 fees-name">
+                                                            <%- reports[i].reportName %>
+                                                            <br>
+                                                            <%- reports[i].reportDate %>
+                                                            <% if(admin == true) { %>
+                                                                <br>
+                                                                <%- reports[i].memberName %>
+                                                            <% } 
+                                                            else { %><% } %>
+                                                        </div>
+                                                        <div class="col-2 fees-name marks">
+                                                            <%- reports[i].reportMarks %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            <% } %>
+                                        </div>
+                                        <!-- Report card end -->
+                                    </div>
+                                </div>
+                                <!-- Report Card end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+</script>
+</body>
+</html>

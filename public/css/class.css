@@ -1,0 +1,111 @@
+body{
+    font-family: 'Lexend Deca', sans-serif;
+    overflow-x: hidden;
+}
+.left-side{
+    background-color: #FFFAE6;
+    height: 100vh;
+}
+.welcome{
+    text-decoration: underline;
+    color: #3E4155;
+}
+p{
+    color: #3E4155;
+}
+.student{
+    background-color: #FFE6E6;
+    margin: 0rem 1.5rem 0rem 1.5rem;
+    border-radius: 5px;
+    border: #3E4155 1px solid;
+    padding: 10px;
+    cursor: pointer;
+}
+.name{
+    margin-top: 1.2rem;
+}
+.pfp{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    border: #3E4155 2px solid;
+}
+.pfp-outer-circle{
+    padding: 0.37rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: #3E4155 2px solid;
+}
+.test{
+    border-radius: 5px;
+    background-color: #DDE3D7;  
+    padding-bottom: 1.2rem; 
+    height: 18rem;         
+}
+.test-head{
+    padding-left: 2rem;
+}
+.add-btns{
+    border: none;
+    background-color: #3E4155;
+    color: white;
+    border-radius: 20px;
+    padding: 2px 20px;
+}
+.test-card{
+    border-radius: 5px;
+    background-color: #FDFFF8;
+    padding: 1rem;
+}
+.hw{
+    border-radius: 5px;
+    background-color: #DDE3D7;  
+    padding-bottom: 1.2rem;  
+    width: 95%;
+    height: 22rem;
+}
+.hw-name{
+    font-size: 0.8rem;
+}
+.notice{
+    border-radius: 5px;
+    background-color: #DDE3D7;  
+    padding-bottom: 1.2rem;  
+    width: 95%;
+    height: 42rem;
+}
+.notice-icons{
+    margin-top: 0.5rem;
+}
+.marks{
+    margin-top: 0.5rem;
+    margin-left: -1.5rem;
+}
+.btns{
+    width: 10rem;
+    height: 2.7rem;
+    background-color: #FFE6E6;
+    color: #3E4155;
+    border: none;
+    border-radius: 50px;
+}
+.modal-content{
+    background-color: #FFFAE6;
+}
+input{
+    color: #828A7C;
+    width: 100%;
+    border: none;
+    border-bottom: #828A7C 2.5px solid;
+    padding-bottom: 10px;
+    background-color: #FFFAE6;
+}
+input:focus{
+    outline: none;
+}
+#noticeModal:hover {
+    cursor: pointer;
+}
+

@@ -1,0 +1,81 @@
+body{
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.left-side{
+    background-color: #FFFAE6;
+    height: 100vh;
+}
+
+.head{
+    margin-top: 10rem;
+    text-decoration: underline;
+    color: #3E4155;
+}
+
+.login-head{
+    margin-top: 10rem;
+    margin-left: 10rem;
+}
+
+.partials{
+  margin-left: 8rem;
+}
+
+form{
+    margin-top: 3rem;
+    margin-left: 10rem;
+}
+
+input{
+    color: #828A7C;
+    width: 20rem;
+    border: none;
+    border-bottom: #828A7C 2.5px solid;
+    padding-bottom: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+label{
+    color: #828A7C;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.submit{
+    border-radius: 50px;
+    background-color: #828A7C;
+    border: #828A7C 2px solid;
+    color: white;
+    width: 8rem;
+    transition-duration: 300ms;
+}
+
+.submit:hover{
+    background-color: white;
+    color: #828A7C;
+}
+
+.register-btn{
+    border-radius: 50px;
+    border: #828A7C 2px solid;
+    width: 10rem;
+    color: #828A7C;
+    margin-left: -4rem;
+    transition-duration: 300ms;
+}
+
+.register-btn:hover{
+    background-color: #828A7C;
+    color: white;
+}
+
+.leaf-image{
+    position: absolute;
+    bottom: 3rem;
+}

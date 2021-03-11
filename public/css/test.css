@@ -1,0 +1,38 @@
+body{
+    font-family: 'Lexend Deca', sans-serif;
+}
+.left-side{
+    background-color: #FFFAE6;
+}
+.welcome{
+    text-decoration: underline;
+    color: #3E4155;
+}
+.name{
+    color: #3E4155;
+}
+.typeOfUser{
+    color: #828A7C;
+}
+.date{
+    margin-top: 10rem;
+    color: #828A7C;
+}
+.test{
+    padding: 1.5rem;
+}
+.test-box{
+    background-color: #F7F8FF;
+    height: 100%;
+    padding: 1rem 0rem;
+}
+.right-side{
+    background-color: #DDE3D7;
+}
+.marks{
+    color: #828A7C;
+}
+.time{
+    margin-top: 18rem;
+    color: #828A7C;
+}

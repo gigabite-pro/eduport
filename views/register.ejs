@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/c87f06ae40c78321844f2eac8b51737f?family=Corbel" rel="stylesheet" type="text/css"/>
+    <link href="/css/register.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/png">
+    <title>Eduport - Sign Up</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 left-side">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 text-center head mb-5">
+                                <h1>Eduport</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center svg">
+                                <img src="/images/undraw_learning_2q1h.svg" alt="welcome image" width="400">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 right side">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-12 head login-head">
+                                <h1>Sign Up</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                              <div class="partials mt-2">
+                              <%- include('./partials/messages') %>
+                              </div>
+                                <form action="/auth/register", method="POST">
+                                    <div>
+                                        <input
+                                        type="name"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Name"
+                                        value="<%= typeof name != 'undefined' ? name : '' %>"
+                                        />   
+                                    </div>
+                                    <div class="mt-4">
+                                        <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Email"
+                                        value="<%= typeof email != 'undefined' ? email : '' %>"
+                                        />   
+                                    </div>
+                                    <div class="mt-4">
+                                        <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        />
+                                    </div>
+                                    <div class="mt-4">
+                                      <input
+                                      type="password"
+                                      id="password2"
+                                      name="password2"
+                                      placeholder="Confirm Password"
+                                      />
+                                  </div>
+                                    <div class="mt-4">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="typeOfUser" id="teacher" value="teacher">
+                                            <label class="form-check-label" for="teacher">Teacher</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="typeOfUser" id="student" value="student">
+                                            <label class="form-check-label" for="student">Student</label>
+                                          </div>
+                                    </div>
+                                    <div class="row mt-5">
+                                        <div class="col-6">
+                                            <button type="submit" class="btn submit">Register</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="/login">
+                                                <button type="button" class="btn register-btn">Sign In instead?</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row mt-5">
+                            <div class="col-12 mt-2 text-center ">
+                                <img src="/images/Group_2.png" alt="circle" width="80">
+                            </div>
+                        </div>
+                        <div class="row justify-content-right leaf-image">
+                            <div class="col-12 text-right">
+                                <img src="/images/Group_1.png" alt="leaf-image" width="120">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+</script>
+</body>
+</html>

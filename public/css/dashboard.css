@@ -1,0 +1,85 @@
+body{
+    font-family: 'Lexend Deca', sans-serif;
+}
+.left-side{
+    background-color: #FFFAE6;
+    height: 100vh;
+}
+.welcome{
+    text-decoration: underline;
+    color: #3E4155;
+}
+.pfp{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    border: #3E4155 2px solid;
+}
+.pfp-outer-circle{
+    padding: 0.35rem;
+    margin: auto;
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    border: #3E4155 2px solid;
+}
+.name{
+    color: #3E4155;
+}
+.typeOfUser{
+    color: #828A7C;
+}
+.btns{
+    width: 10rem;
+    height: 2.7rem;
+    background-color: #FFE6E6;
+    color: #3E4155;
+    border: none;
+    border-radius: 50px;
+}
+.create{
+    background-color: #3E4155;
+    color: white;
+}
+.logout a{
+    color: #3E4155;
+}
+.margined{
+    margin-left: 1.8rem;
+}
+.right-upper-text{
+    color: #3E4155;
+}
+.ttn-card{
+    width: 15rem;
+    height: 10rem;
+    background-color: #DDE3D7;
+    border: none;
+    border-radius: 10px;
+}
+.card-txt{
+    text-align: center;
+    position: relative;
+    top: 1.2rem;
+    text-decoration: underline;
+}
+.margin{
+    margin-left: -1.1rem;
+}
+.top{
+    margin-top: 1rem;
+}
+.modal-content{
+    background-color: #FFFAE6;
+}
+input{
+    color: #828A7C;
+    width: 100%;
+    border: none;
+    border-bottom: #828A7C 2.5px solid;
+    padding-bottom: 10px;
+    background-color: #FFFAE6;
+}
+input:focus{
+    outline: none;
+}
