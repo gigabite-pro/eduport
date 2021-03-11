@@ -12,7 +12,7 @@
     <link href="//db.onlinewebfonts.com/c/c87f06ae40c78321844f2eac8b51737f?family=Corbel" rel="stylesheet" type="text/css"/>
     <link href="/css/test.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="/images/logo.png" type="image/png">
-    <title>Test</title>
+    <title><%= testName %></title>
 </head>
 <body>
     <div class="container-fluid">
@@ -20,12 +20,12 @@
             <div class="col-md-2 left-side">
                 <div class="row mt-4">
                     <div class="col-12 text-center mt-3 welcome">
-                        <h2>Test</h2>
+                        <h2><%= testName %></h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center mt-2 welcome">
-                        <h6>Owner - <%= ownerName %></h6>
+                        <h6>Class - <%= className %></h6>
                     </div>
                 </div>
                 <hr class="mt-4" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
@@ -34,55 +34,37 @@
                         <h2><%= name %></h2>
                     </div>
                     <div class="col-12 text-center typeOfUser">
-                        <% if(typeOfUser == "teacher"){ %>
-                            <h4>Teacher</h4>
-                            <% }else{ %>
-                                <h4>Student</h4>
-                                <% } %>
-                    </div>
-                </div>
-                <hr class="mt-2" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
-                <div class="row mt-5 mb-5">
-                    <div class="col-12 text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptate non, fugiat perspiciatis omnis quasi alias quia error facere quisquam.
+                        <h4>Student</h4>
                     </div>
                 </div>
                 <hr class="mt-4" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
                 <div class="col-12 date text-center">
-                    <h3>19/03/2017</h3>
+                    <h3><%= testDate %></h3>
                 </div>
             </div>
             <div class="col-md-8 middle test">
                 <div class="test-box shadow">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <img src="https://cdn.discordapp.com/attachments/722357531061649470/819287265956200529/unknown.png" alt="test-paper" width="455rem" class="shadow">
+                            <embed src="<%- testpdfUrl %>#toolbar=0" type="application/pdf" width="755rem" height="900px" class="shadow"/>
                         </div>
                     </div>
                 </div>
             </div>
+            <p hidden id="timegiven"><%= testTime %></p>
             <div class="col-md-2 right-side">
                 <div class="row mt-4">
                     <div class="col-12 text-center welcome">
                         <h2>
-                            Subject :
-                            <br>
-                            Maths
+                            Time left
                         </h2>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 marks text-center">
-                        <h4>
-                            MM = 80
-                        </h4>
                     </div>
                 </div>
                 <hr class="mt-4" style="height: 0.15rem; width: 70%; background-color: #272926; margin: auto;">
                 <div class="row mt-3">
                     <div class="col-12 name text-center">
                         <h1>
-                            00:00
+                            <span id="timer"></span>
                         </h1>
                     </div>
                 </div>
@@ -90,7 +72,7 @@
                 <div class="row">
                     <div class="col-12 text-center time">
                         <h3>
-                            12:41 PM
+                            Current Time<br><span id="time"></span>
                         </h3>
                     </div>
                 </div>
@@ -99,5 +81,42 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
 </script>
+<script type="text/javascript"> 
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            display.textContent = minutes + ":" + seconds;
+    
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        display_ct()
+        const minutes = Number(document.getElementById("timegiven").innerHTML)
+        display = document.querySelector('#timer');
+        startTimer(minutes*60, display);
+    };
+
+    function display_c(){
+        var refresh=1000; // Refresh rate in milli seconds
+        mytime=setTimeout('display_ct()',refresh)
+    }
+    
+    function display_ct() {
+        var x = new Date()
+        var x1 = x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+        document.getElementById('time').innerHTML = x1;
+        display_c();
+     }
+    </script>
 </body>
 </html>

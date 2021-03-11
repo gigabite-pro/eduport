@@ -114,6 +114,8 @@ router.get('/:inviteCode', authenticateJWT, (req,res) => {
             }
         }
 
+        const tests = classFound.tests
+
         if(user.typeOfUser == 'teacher') {
             if(ownerEmail == user.email) {
                 res.render('class', {
@@ -125,6 +127,7 @@ router.get('/:inviteCode', authenticateJWT, (req,res) => {
                     notices: modalNotices,
                     homework: modalHomeworks,
                     schedule: modalSchedules,
+                    tests,
                     reports,
                     inviteCode
                 })
@@ -144,6 +147,7 @@ router.get('/:inviteCode', authenticateJWT, (req,res) => {
                             notices: modalNotices,
                             homework: modalHomeworks,
                             schedule: modalSchedules,
+                            tests,
                             reports: studentReports,
                             inviteCode
                         })
@@ -246,6 +250,29 @@ router.post('/publishTest', authenticateJWT, (req,res) => {
         classFound.tests = [...classFound.tests, {testCode, testName , testTime, testDate , pdfUrl}]
         classFound.save()
         res.redirect(`/class/${inviteCode}`)
+    })
+})
+
+router.get('/:inviteCode/tests/:testCode', authenticateJWT, (req, res) => {
+    const { inviteCode, testCode } = req.params
+    Class.findOne({ inviteCode }, async (err, classFound) => {
+        if(err) {
+            res.status(500)
+        }
+        const user = await User.findOne({ email: req.user.email }).lean()
+        const tests = classFound.tests
+        for(let i=0; i<tests.length; i++) {
+            if(tests[i].testCode == testCode) {
+                res.render('test', {
+                    className: classFound.name,
+                    name: user.name,
+                    testName: tests[i].testName, 
+                    testDate: tests[i].testDate,
+                    testpdfUrl: tests[i].pdfUrl,
+                    testTime: tests[i].testTime
+                })
+            }
+        }
     })
 })
 

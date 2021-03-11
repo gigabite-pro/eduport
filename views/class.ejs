@@ -403,23 +403,27 @@
                                     </div>
                                     <hr class="mt-2" style="height: 0.15rem; width: 90%; background-color: #272926; margin: auto;">
                                     <div class="row mt-1 justify-content-center">
-                                        <!-- Test Card -->
-                                        <div class="col-10 mt-3">
-                                            <div class="test-card shadow">
-                                                <div class="row">
-                                                    <div class="col-1 icons text-center">
-                                                        <i class="far fa-bookmark"></i>
+                                        <% for (let i = 0; i < tests.length; i++) { %> 
+                                            <!-- Test Card -->
+                                            <div class="col-10 mt-3" id="noticeModal">
+                                                <a style="text-decoration:none; color: black" href="/class/<%- inviteCode %>/tests/<%- tests[i].testCode %>">
+                                                    <div class="test-card shadow">
+                                                        <div class="row">
+                                                            <div class="col-1 icons text-center">
+                                                                <i class="far fa-bookmark"></i>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                <%- tests[i].testName %>
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <%- tests[i].testDate %>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-8">
-                                                        Maths Final Test
-                                                    </div>
-                                                    <div class="col-3">
-                                                        19/03/2017
-                                                    </div>
-                                                </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                        <!-- Test card end -->
+                                            <!-- Test card end -->
+                                        <% } %>
                                     </div>
                                 </div>
                             </div>
