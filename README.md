@@ -4,6 +4,7 @@
   <img src="https://cdn.discordapp.com/attachments/751511569971675216/819553033175957564/logo.png"/>
 </p>
 
+ ## [Demo](https://youtu.be/zvriVY6DTM0)
 
 EduPort is a platform for local tuition/coaching classes to organize and manage the data of the students and to interact with them formally.
 
